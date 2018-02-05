@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hitcount
+  labels:
+    app: hitcount
+    tier: frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: hitcount
+    tier: frontend
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hitcount
+  labels:
+    app: hitcount
+    tier: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hitcount
+        tier: frontend
+    spec:
+      containers:
+      - name: hitcount
+        image: docker.io/gregvers/hitcount
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 80
