@@ -2,6 +2,20 @@ doctype html
 html
   head
     title= title
+    if showTests
+        link(rel="stylesheet", href="/vendor/mocha.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+    if showTests
+        div("mocha")
+        script(src="/vendor/mocha.js")
+        script(src="/vendor/chai.js")
+        //<script>
+        //  mocha.ui('tdd');
+        //  var assert = chai.assert;
+        //</script>
+        script(src="/tests/tests-global.js")
+        if pageTestScript
+          script(src="pageTestScript")
+        script(mocha.run();)

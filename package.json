@@ -5,24 +5,24 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha"
+    "test": "mocha ./tests/test"
   },
-  "author": "Greg Verstraeten",
+  "author": "Greg Verstraeten <gregvers@gmail.com.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/gregvers/hitcount.git"
   },
-  "author": "Greg Verstraeten <gregvers@gmail.com.com>",
   "license": "Apache-2.0",
   "bugs": {},
   "homepage": "https://github.com/gregvers/hitcount",
   "dependencies": {
+    "chai-http": "^3.0.0",
     "express": "~4.4.2",
     "mongodb": "^2.2.33",
     "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0"
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3"
   }
 }

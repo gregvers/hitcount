@@ -7,6 +7,12 @@ var index = require('./routes/index');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(function(req, res, next){
+        res.locals.showTests = app.get('env') !== 'production' &&
+                req.query.test === '1';
+        next();
+});
+
 app.use('/', index);
 
 // catch 404 and forward to error handler
