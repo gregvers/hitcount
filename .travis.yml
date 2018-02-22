@@ -2,13 +2,16 @@ sudo: required
 
 services:
   - docker
+  - mongodb
 
 language: node_js
+node_js:
+  - "node"
 
-before_install:
-  - docker pull mongo
-  - docker pull node
-  - docker run -d -p 27017:27017 --name mongodb mongo
+#before_install:
+#  - docker pull mongo
+#  - docker pull node
+#  - docker run -d -p 27017:27017 --name mongodb mongo
 
 install:
   - npm install
