@@ -9,7 +9,7 @@ steps:
   id: NPM_test
   args: ['test']
   env:
-  - 'MONGODB_SERVICE_HOST=mongodb'
+  - 'MONGODB_SERVICE_HOST=localhost'
   - 'MONGODB_SERVICE_PORT=27017'
   waitFor: ['NPM_install', 'Run_MongoDB'] 
 - name: 'gcr.io/cloud-builders/docker'
