@@ -13,6 +13,6 @@ steps:
   - 'MONGODB_SERVICE_PORT=27017'
   waitFor: ['NPM_install', 'Run_MongoDB'] 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hitcount:$TAG_NAME', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hitcount:black', '.']
 timeout: 500s
-images: ['gcr.io/$PROJECT_ID/hitcount:$TAG_NAME']
+images: ['gcr.io/$PROJECT_ID/hitcount:black']
