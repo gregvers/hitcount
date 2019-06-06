@@ -1,0 +1,12 @@
+version: '1'
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+
+networks:
+    default:
+        external:
+            name: cloudbuild

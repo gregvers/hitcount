@@ -2,14 +2,17 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   id: Install
   args: ['install']
+- name: 'docker/compose:1.15.0'
+  id: RunDependencies
+  args: ['up', '-d']
 - name: 'gcr.io/cloud-builders/npm'
   id: Test
   args: ['test']
   env:
-  - 'MONGODB_SERVICE_HOST=34.94.167.102'
-  - 'MONGODB_SERVICE_PORT=31560'
-  waitFor: ['Install'] 
+  - 'MONGODB_SERVICE_HOST=mongodb'
+  - 'MONGODB_SERVICE_PORT=27017'
+  waitFor: ['Install', 'RunDependencies'] 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hitcount:$TAG_NAME', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/hitcount', '.']
 timeout: 500s
-images: ['gcr.io/$PROJECT_ID/hitcount:$TAG_NAME']
+images: ['gcr.io/$PROJECT_ID/hitcount']
