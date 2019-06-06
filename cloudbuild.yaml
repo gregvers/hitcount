@@ -2,9 +2,8 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   id: NPM_install
   args: ['install']
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'mongo'
   id: Run_MongoDB
-  args: ['run', '--name', 'mongodb', '-d', 'mongo']
 - name: 'gcr.io/cloud-builders/npm'
   id: NPM_test
   args: ['test']
