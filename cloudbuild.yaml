@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   id: Install
-  args: ['Install']
+  args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
   id: Test
-  args: ['Test']
+  args: ['test']
   env:
   - 'MONGODB_SERVICE_HOST=34.94.167.102'
   - 'MONGODB_SERVICE_PORT=31560'
